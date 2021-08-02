@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {BrowserRouter as Router} from "react-router-dom"
+import { VideoProvider } from './Context/VideoProvider';
 ReactDOM.render(
   <React.StrictMode>
+    <VideoProvider>
+    <Router>
     <App />
+    </Router>
+    </VideoProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
