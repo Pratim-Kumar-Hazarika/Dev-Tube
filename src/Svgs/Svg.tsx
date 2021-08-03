@@ -47,3 +47,23 @@ export function MdiAlphaDBox(props: SVGProps<SVGSVGElement>) {
     <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path d="M9 7v10h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H9m2 2h2v6h-2V9M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="currentColor"></path></svg>
   )
 }
+
+
+export function IonMdShareAlt(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 512 512" {...props}><path d="M448 248L288 96v85.334C138.666 202.667 85.333 309.334 64 416c53.333-74.666 117.333-108.802 224-108.802v87.469L448 248z" fill="currentColor"></path></svg>
+  )
+}
+
+
+export function PhDotsThreeOutlineVerticalFill(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 256 256" {...props}><path d="M156 128a28 28 0 1 1-28-28a28.028 28.028 0 0 1 28 28zm-28-52a28 28 0 1 0-28-28a28.028 28.028 0 0 0 28 28zm0 104a28 28 0 1 0 28 28a28.028 28.028 0 0 0-28-28z" fill="currentColor"></path></svg>
+  )
+}
+
+export function MdiThumbDown(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path d="M19 15h4V3h-4m-4 0H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2a2 2 0 0 0 2 2h6.31l-.95 4.57c-.02.1-.03.2-.03.31c0 .42.17.79.44 1.06L9.83 23l6.58-6.59c.37-.36.59-.86.59-1.41V5a2 2 0 0 0-2-2z" fill="currentColor"></path></svg>
+  )
+}
