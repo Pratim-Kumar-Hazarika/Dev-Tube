@@ -1,22 +1,35 @@
-import  { FC,createContext, Dispatch, useContext, useEffect, useReducer } from "react";
+import  { FC,createContext, Dispatch, useContext, useEffect, useReducer, useState, SetStateAction } from "react";
 import { ACTION, initialState, reducer } from "./reducers/video.reducer";
 import { ReducerInitialState } from "./reducers/video.reducer.types";
 import { getVideosFromServer } from "./utils/getVideos";
 
 interface ContextType {
     state:ReducerInitialState;
-    dispatch:Dispatch<ACTION>
+    dispatch:Dispatch<ACTION>;
+    bgopacity:boolean;
+    setBgOpacity:React.Dispatch<SetStateAction<boolean>>
+    show:boolean;
+    setShow:React.Dispatch<SetStateAction<boolean>>
+    likedVideo:boolean
+    setLikedVideo:React.Dispatch<SetStateAction<boolean>>
+    dislikedVideo:boolean
+    setDislikedVideo:React.Dispatch<SetStateAction<boolean>>
 }
 
 const VideoContext = createContext({} as ContextType);
 
-export const VideoProvider: FC = ({children}) => {
+export const VideoProvider: FC = ({children}:any) => {
     const [state,dispatch] = useReducer(reducer,initialState);
+    const [bgopacity,setBgOpacity] = useState(false)
+    const [show,setShow] = useState(false)
+    const [likedVideo,setLikedVideo] = useState(false);
+    const [dislikedVideo,setDislikedVideo] = useState(false);
+      
     useEffect(()=>{
         getVideosFromServer(dispatch);
       
     },[])
-    return <VideoContext.Provider value={{state,dispatch}}>{children}</VideoContext.Provider>
+    return <VideoContext.Provider value={{state,dispatch,bgopacity,setBgOpacity,show,setShow,dislikedVideo,setDislikedVideo,likedVideo,setLikedVideo}}>{children}</VideoContext.Provider>
 }
 
 
