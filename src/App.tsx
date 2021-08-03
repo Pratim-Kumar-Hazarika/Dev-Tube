@@ -4,6 +4,7 @@ import Explore from "./Screens/Explore"
 import { Route, Routes } from 'react-router';
 import Signup from './Screens/Signup';
 import Home from './Screens/Home';
+import { WatchVideo } from './Screens/WatchVideo';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/explore" element = {<Explore/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/video/:videoId" element={<WatchVideo />} />
       </Routes>
     </div>
   );
