@@ -7,6 +7,7 @@
   position: fixed;
   display: flex;
   z-index: 1;
+  justify-content:space-between
 }
 .header {
   display: flex;
@@ -14,14 +15,7 @@
 }
 
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 9rem;
-  overflow: hidden;
-  margin-top: -1rem;
 
-}
 .buttons > div {
   margin: 1rem;
   
@@ -53,7 +47,7 @@
 /* //small// */
 @media only screen and (max-width: 600px) {
 
-  .buttons {
+  .hide_header_icons {
     display: none;
   }
   .color_modes {
@@ -72,7 +66,7 @@
   }
 }
 .homebtn{
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   margin-top: 1.2rem;
   cursor: pointer;
@@ -100,4 +94,17 @@
 }
 .dev_text{
   color: red;
+}
+.header_iconifys{
+  /* border:1px solid white; */
+  display:flex;
+  justify-content: space-between;
+  width: 410px;
+  /* margin-left: 40rem; */
+}
+
+@media only screen and (max-width: 600px) {
+  .header_iconifys{
+    width: 170px;
+  }
 }
