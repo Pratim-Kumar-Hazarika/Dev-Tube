@@ -14,13 +14,17 @@ export type VideosFromServer = {
 }
 export type Playlist = {
     name: string;
-    video: []
+    video: Video[]
 }
 
+export type PlayListName = string
+
 export type ReducerInitialState = {
-    likedVideos: [];
-    historyVideos: [];
+    likedVideos: Video[];
+    dislikedVideos :Video[];
+    playlistNames:PlayListName[]
+    historyVideos:Video [];
     playlists: Playlist[];
-    allVideos: Video[]
+    allVideos: Video[];
 
 }
