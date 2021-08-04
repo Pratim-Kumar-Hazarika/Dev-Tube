@@ -1,5 +1,5 @@
 import "../Components/Login/Login.css"
-import SignupForm from "../Signup/SignupForm"
+import SignupForm from "../Components/Signup/SignupForm"
 
 import {ReactComponent as HeroImage} from "../Svgs/devtube2.svg"
 export default function Signup() {
