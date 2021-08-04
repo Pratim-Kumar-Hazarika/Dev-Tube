@@ -1,25 +1,45 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Login.css"
-
+import { Formik, Form, Field } from "formik";
+import { validateEmail, validatePassword } from '../../Context/utils/Validations';
+interface MyFormValues {
+    password: string;
+    email: string;
+  }
 export default function LoginForm() {
-    return (<> <div className="login_content">
+    const initialValues: MyFormValues = { password: "", email: "" };
+    return (<> 
+    <div className="login_content">
         <div className="login_heading">
             <span
                 style={{
                 fontWeight: "bold"
             }}>Login</span>
         </div>
-        <div className="email_div">
+        <Formik
+        initialValues={initialValues}
+        onSubmit={(values, actions) => {
+          actions.setSubmitting(false);
+        }}
+      >
+        {({ errors, touched, isValidating }) => (
+          <Form>
+            <div className="email_div">
             <div>Email</div>
-            <input className="email_input" type="text" name="" id=""/>
-        </div>
-        <div className="password_div">
+              <Field name="email" validate={(value:string)=>validateEmail(value)} className="password_input"/>
+              {errors.email && touched.email && <div className="error_text">{errors.email}</div>}
+            </div>
+            
+            <div className="password_div">
             <div>Password</div>
-            <input className="password_input" type="text" name="" id=""/>
-        </div>
-        <div>
-            <button className="login_btn">Login</button>
+              <Field name="password" validate={(value:string)=>validatePassword(value)} className="password_input" type="password"/>
+              {errors.password && touched.password && (
+                <div className="error_text">{errors.password}</div>
+              )}
+            </div>
+            <div>
+            <button type="submit" className="login_btn">Submit</button>
             <div className="dont_have_account_div">
                 <span>Don't have an account ?</span>
                 <Link to="/signup">
@@ -27,7 +47,10 @@ export default function LoginForm() {
                     Signup</span>
                 </Link>
             </div>
-        </div>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </div>
     </>
     )
