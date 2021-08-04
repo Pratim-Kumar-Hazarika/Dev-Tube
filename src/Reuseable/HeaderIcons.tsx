@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useAuth } from '../Context/AuthProvider';
 import { IconoirSunLight, IcRoundExplore, IcRoundThumbUp, MdiHistory, MdiHome, MdiPlaylistPlus } from '../Svgs/Svg'
 
 export default function HeaderIcons() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const {token,signoutHandler} = useAuth()
     return (
         <div>
         <div className="header_iconifys ">
@@ -40,7 +42,7 @@ export default function HeaderIcons() {
                 <IconoirSunLight className="nav_icons"/>
             </div>
             <div>
-                <button onClick={() => navigate("/login")} className="homebtn">LOG IN</button>
+            {token ? <button onClick={signoutHandler} className="homebtn ">SIGN OUT</button> :<button onClick={()=>navigate("/login")} className="homebtn ">LOG IN</button>}
             </div>
         </div>
     </div>
