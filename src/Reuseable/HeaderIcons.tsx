@@ -8,24 +8,24 @@ export default function HeaderIcons() {
         <div>
         <div className="header_iconifys ">
             <div className="hide_header_icons">
-                <Link to="/historyvideo">
+                <Link to="/">
                     <MdiHome className="nav_icons"/>
                 </Link>
             </div>
             <div className="hide_header_icons">
-                <Link to="/historyvideo">
+                <Link to="/explore">
                     <IcRoundExplore className="nav_icons"/>
                 </Link>
             </div>
 
             <div className="hide_header_icons">
-                <Link to="/likedvideo">
+                <Link to="/liked">
                     <IcRoundThumbUp className="nav_icons"/>
                 </Link>
             </div>
 
             <div className="hide_header_icons">
-                <Link to="/historyvideo">
+                <Link to="/history">
                     <MdiHistory className="nav_icons"/>
                 </Link>
             </div>
