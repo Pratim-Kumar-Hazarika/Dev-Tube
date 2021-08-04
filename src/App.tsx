@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router';
 import Signup from './Screens/Signup';
 import Home from './Screens/Home';
 import { WatchVideo } from './Screens/WatchVideo';
+import { LikedVideo } from './Screens/LikeVideos';
+import { HistoryVideo } from './Screens/HistoryVideo';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/video/:videoId" element={<WatchVideo />} />
+        <Route path = "/liked" element={<LikedVideo/>}/>
+        <Route path = "/history" element={<HistoryVideo/>}/>
       </Routes>
     </div>
   );
