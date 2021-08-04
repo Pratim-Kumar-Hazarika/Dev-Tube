@@ -31,7 +31,7 @@ export default function HeaderIcons() {
             </div>
 
             <div className="hide_header_icons">
-                <Link to="/playlist">
+                <Link to="/playlists">
                     <MdiPlaylistPlus className="nav_icons"/>
                 </Link>
             </div>
