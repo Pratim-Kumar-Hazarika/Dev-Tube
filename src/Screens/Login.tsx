@@ -6,7 +6,7 @@ export default function Login() {
         <div className="login">
             <div className="login_text bg_color">
                 <div className="quote">
-                    <span className="note_quote">You Never Get Bored With <span className="dev_text">Dev</span>Tube</span>
+                    <span className="note_quote">Login to <span className="dev_text">Dev</span>Tube</span>
                 </div>
                 <div className="hero_image1">
                     <HeroImage/>
