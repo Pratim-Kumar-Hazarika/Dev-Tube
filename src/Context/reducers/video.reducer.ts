@@ -17,6 +17,8 @@ export const initialState :ReducerInitialState= {
     | {type :"HISTORY_VIDEOS",payload:{videoId:string}}
     | {type :"ADD_PLAYLIST",payload:{playlistName:string}}
     | {type :"ADD_VIDEO_TO_PLAYLIST",payload:{playlistName:string,videoId:string}}
+    | {type :"DELETE_LIKED_VIDEO",payload:{videoId:string}}
+    | {type :"DELETE_HISTORY_VIDEO",payload:{videoId:string}}
 
 export function reducer(state:ReducerInitialState,action:ACTION){
     switch (action.type) {
@@ -53,7 +55,17 @@ export function reducer(state:ReducerInitialState,action:ACTION){
                     ...state,
                     historyVideos:[...state.historyVideos,getHistoryVideo[0]]
                 }
-            }return state; 
+            }return state;
+        case "DELETE_HISTORY_VIDEO":
+            return {
+                ...state,
+                historyVideos:state.historyVideos.filter((video)=>video._id!== action.payload.videoId)
+            };
+         case "DELETE_LIKED_VIDEO":
+                return {
+                    ...state,
+                    likedVideos:state.likedVideos.filter((video)=>video._id!== action.payload.videoId)
+             };
         case "ADD_PLAYLIST":
             return {
                 ...state,
