@@ -137,3 +137,6 @@
 .bg_color{
     /* background-color:#282828 */
 }
+.error_text{
+    color:red;
+  }
