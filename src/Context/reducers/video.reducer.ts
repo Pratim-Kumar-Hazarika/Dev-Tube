@@ -19,6 +19,8 @@ export const initialState :ReducerInitialState= {
     | {type :"ADD_VIDEO_TO_PLAYLIST",payload:{playlistName:string,videoId:string}}
     | {type :"DELETE_LIKED_VIDEO",payload:{videoId:string}}
     | {type :"DELETE_HISTORY_VIDEO",payload:{videoId:string}}
+    | {type :"DELETE_VIDEO_FROM_PLAYLIST";payload:{playlistName:string,videoId:string}}
+    | {type :"DELETE_ENTIRE_PLAYLIST";payload:{playlistName:string}}
 
 export function reducer(state:ReducerInitialState,action:ACTION){
     switch (action.type) {
@@ -72,15 +74,28 @@ export function reducer(state:ReducerInitialState,action:ACTION){
                 playlistNames:[...state.playlistNames,action.payload.playlistName],
                 playlists:[...state.playlists,{name:action.payload.playlistName,video:[]}]
             };
-        // case "ADD_VIDEO_TO_PLAYLIST":
-        //     const getVideoToBeAddedToPlaylist = state.allVideos.find((video)=>video._id === action.payload.videoId);
+        case "ADD_VIDEO_TO_PLAYLIST":
+            const getVideoToBeAddedToPlaylist = state.allVideos.filter((video)=>video._id === action.payload.videoId);
       
-        //    return {
-        //        ...state,
-        //        playlists:state.playlists.map((playlist)=>(
-        //            playlist.name === action.payload.playlistName ? {...playlist,video:[...playlist.video,getVideoToBeAddedToPlaylist]} : playlist
-        //        ))
-        //    }
+           return {
+               ...state,
+               playlists:state.playlists.map((playlist)=>(
+                   playlist.name === action.payload.playlistName ? {...playlist,video:[...playlist.video,getVideoToBeAddedToPlaylist[0]]} : playlist
+               ))
+           };
+        case "DELETE_VIDEO_FROM_PLAYLIST":
+            return {
+                ...state,
+                playlists:state.playlists.map((playlist)=>(
+                    playlist.name === action.payload.playlistName ? {...playlist, video:playlist.video.filter((video)=>video._id !== action.payload.videoId)} : playlist
+                ))
+            };
+        case "DELETE_ENTIRE_PLAYLIST":
+            return {
+                ...state,
+                playlistNames:state.playlistNames.filter((name)=>name !== action.payload.playlistName),
+                playlists:state.playlists.filter((playlist)=>playlist.name !== action.payload.playlistName)
+            }
         default:
            return state;
     }
