@@ -2,10 +2,11 @@
 .row-1 {
     display: flex;
     overflow-x: scroll;
+    /* overflow-y:none */
   }
   
   .row-1::-webkit-scrollbar {
-    height: 11px;
+    height: 8px;
   }
   
   .row-1::-webkit-scrollbar-track {
@@ -73,9 +74,7 @@
       font-size: 12px;
       margin-left: -1rem;
     }
-    /* .row_ava{
-      margin-left: -10px;
-    } */
+    
     .rows{
       margin-top: 3rem;
     }
@@ -87,12 +86,25 @@
       overflow: hidden;
       margin-top: 5rem;
       padding-top:0.3rem;
-      padding-bottom:0.4rem
+      padding-bottom:0.4rem;
+      overflow-y:none
     }
   }
-  /* .row_div{
-    height:95vh
-  } */
-  /* .rows{
-    margin-top:1rem
-  } */
+
+.playlist_delete{
+  /* border: 1px solid white; */
+  display: flex;
+  justify-content:space-between;
+  width: 100px;
+  margin-left: 1rem;
+  font-size: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+.playlist_name_delete{
+  font-size: 1.6rem;
+}
+.icon_size{
+  font-size: 1.4rem;
+  cursor: pointer;
+}
