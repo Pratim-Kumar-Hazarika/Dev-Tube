@@ -56,7 +56,7 @@ export function LeftBar() {
                 </div>
             </Link>
             <Link
-                to="/playlist"
+                to="/playlists"
                 style={{
                 textDecoration: "none"
             }}>
