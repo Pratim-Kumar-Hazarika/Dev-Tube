@@ -67,3 +67,9 @@ export function MdiThumbDown(props: SVGProps<SVGSVGElement>) {
     <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path d="M19 15h4V3h-4m-4 0H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2a2 2 0 0 0 2 2h6.31l-.95 4.57c-.02.1-.03.2-.03.31c0 .42.17.79.44 1.06L9.83 23l6.58-6.59c.37-.36.59-.86.59-1.41V5a2 2 0 0 0-2-2z" fill="currentColor"></path></svg>
   )
 }
+
+export function IonMdTrash(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 512 512" {...props}><path d="M128 405.429C128 428.846 147.198 448 170.667 448h170.667C364.802 448 384 428.846 384 405.429V160H128v245.429zM416 96h-80l-26.785-32H202.786L176 96H96v32h320V96z" fill="currentColor"></path></svg>
+  )
+}
