@@ -12,11 +12,13 @@ import {Link} from "react-router-dom";
 import HeaderIcons from "../../Reuseable/HeaderIcons";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { useAuth } from "../../Context/AuthProvider";
 export default function Header() {
     const navigate = useNavigate();
     const state = useLocation();
     const {videoId} = useParams();
-    const [hideIcon,setHideIcon] = useState(true)
+    const [hideIcon,setHideIcon] = useState(true);
+    const {signoutHandler,token} = useAuth()
     
    useEffect(() =>{
         if(state.pathname==='/'){
@@ -26,7 +28,7 @@ export default function Header() {
             setHideIcon(true)
         }
    },[state.pathname])
-
+   
     return (
         <div >
             <div
@@ -48,7 +50,7 @@ export default function Header() {
                     <IconoirSunLight className=" nav_icons"/>
                 </div>
                 <div style={{display:hideIcon ?"none":""}}>
-                    <button onClick={()=>navigate("/login")} className="homebtn ">LOG IN</button>
+                    {token ? <button onClick={signoutHandler} className="homebtn ">SIGN OUT</button> :<button onClick={()=>navigate("/login")} className="homebtn ">LOG IN</button>}
                 </div>
             </div>
         </div>
