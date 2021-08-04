@@ -1,21 +1,15 @@
 import React, { useState } from 'react'
+import { addVideoToPlaylist } from '../../Context/utils/addVideoToPlaylist'
+import { checkboxCheckHandler } from '../../Context/utils/checkboxCheckHandler'
 import { createPlaylistClickHandler } from '../../Context/utils/createPlaylist'
+import { deleteVideoFromPlaylist } from '../../Context/utils/deleteVideoFromPlaylist'
+
 import { useVideo } from '../../Context/VideoProvider'
+import { EntypoSquaredCross, RadixIconsCross2 } from '../../Svgs/Svg'
 
 export const PlayListModel: React.FC<{_id:string}> = ({_id}) => {
     const {state,dispatch,bgopacity,setBgOpacity,show,setShow} = useVideo()
     const [playlistInput,setPlaylistInput] = useState('')
-     
-    function idMatcherForCheckBox(playlistName:string){
-        const getParticularPlaylist = state.playlists.filter((playlist)=>playlist.name === playlistName)
-        if(getParticularPlaylist[0].video.find((video)=>video._id === _id)){
-          return true
-        }return false
-      }
-      function addVideoToPlaylist( playlistName:string ){
-          dispatch({type:"ADD_VIDEO_TO_PLAYLIST",payload:{playlistName:playlistName,videoId:_id}})
-          console.log("yo video added bitch")
-      }
       function closeModelHandler(){
         setShow(false)
         setBgOpacity(false)
@@ -25,17 +19,16 @@ export const PlayListModel: React.FC<{_id:string}> = ({_id}) => {
         <div className="model_save_div">
           <h3>Save To..</h3>
           <button className="model_close_btn" onClick={closeModelHandler}>
-            <span className="iconify closeIconify" data-icon="akar-icons:cross" data-inline="false"></span>
+            <RadixIconsCross2 className="iconify closeIconify"/>
           </button>
         </div>
         {state.playlistNames.map((playlistName) => (
         <div className="input1">
           <input type="checkbox" 
-           checked={idMatcherForCheckBox(playlistName)}
-            onChange={()=>addVideoToPlaylist(playlistName)} />
-  
-          <div style={{cursor:"pointer"}} >
-            <span className="iconify crossIcon" data-icon="mdi:close-box" data-inline="false"></span>
+           checked={checkboxCheckHandler({playlistName,_id,state})}
+            onChange={()=>addVideoToPlaylist({playlistName,state,_id,dispatch})} />
+          <div style={{cursor:"pointer"}} onClick={() =>deleteVideoFromPlaylist({playlistName,_id,dispatch})}>
+            <EntypoSquaredCross className="iconify crossIcon"/>
           </div>
           <label className="playlist_name"> {playlistName} </label>
         </div>
