@@ -40,7 +40,7 @@ export function LeftBar() {
                 </div>
             </Link>
             <Link
-                to="/likedvideo"
+                to="/liked"
                 style={{
                 textDecoration: "none"
             }}>
@@ -72,7 +72,7 @@ export function LeftBar() {
                 </div>
             </Link>
             <Link
-                to="/historyvideo"
+                to="/history"
                 style={{
                 textDecoration: "none"
             }}>
