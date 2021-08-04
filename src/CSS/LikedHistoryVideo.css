@@ -1,0 +1,105 @@
+.main {
+    /* margin-top: -2rem; */
+    /* height: 150vh; */
+    color:black;
+  }
+  .parent_video_div {
+    margin-left: 1rem;
+    overflow: hidden;
+  }
+  .video_div {
+    color: white;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .dustbinIcon {
+    color: #aaaaaa;
+  }
+  .thumbnail_img {
+    width: 100%;
+  }
+  @media only screen and (max-width: 800px) {
+    .like_history_video {
+      /* margin-left: 2rem; */
+     
+    }
+    .parent_video_div {
+      width: 100%;
+      margin-left: 0.1rem;
+    }
+    .video_name_artist {
+      font-size: 10px;
+      margin-left: 1rem;
+  
+      width: 50%;
+    }
+    .dustbinIcon {
+      font-size: 18px;
+    }
+    .thumbnail_img_div {
+      overflow: hidden;
+      width: 50%;
+    }
+    .symbol {
+      margin-top: 28px;
+      margin-left: 10px;
+    }
+    
+  }
+  @media only screen and (min-width: 800px) {
+    .symbol {
+      margin-top: 13px;
+      margin-left: 10px;
+    }
+    .parent_video_div {
+      max-width: 400px;
+      margin-left: 1rem;
+      overflow: hidden;
+      position: relative;
+      height: auto;
+    }
+    .video_div {
+      color: white;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      font-size: 12px;
+    }
+    .thumbnail_img_div {
+      overflow: hidden;
+      width: 70%;
+    }
+    .video_name_artist {
+      font-size: 12px;
+      margin-left: 1rem;
+      color: #aaaaaa;
+      width: 30%;
+      font-size: 10px;
+    }
+    .like_history_video {
+      margin-left: 13rem;
+      width: 80%;
+    }
+    .dustbinIcon {
+      font-size: 24px;
+    }
+  }
+
+  .dustbinIcon{
+      cursor: pointer;
+  }
+  .like_history_video{
+      color: white;
+      margin-top:5rem;
+  }
+
+  .text{
+      font-size: 2rem;
+      margin-top: 2.5rem;
+  }
+.video_div{
+    margin-top: 1rem;
+}
