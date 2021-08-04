@@ -16,7 +16,7 @@ const {state} = useVideo()
   );
   return (
     <div className="rows">
-      <div >
+      <div style={{marginTop:"2.5rem"}} >
         <h3>HIPHOP AND RAP</h3>
         <div className="row-1">
           <div className="flex">
