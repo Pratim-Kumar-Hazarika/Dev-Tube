@@ -27,11 +27,11 @@
     background-color:#0173F7;
     border:0px;
     color:white;
-    font-size:1rem
+    font-size:1rem;
+    height:6vh;
+    cursor: pointer;
 }
-.email_div{
-/* border:1px solid black; */
-}
+
 .password_div{
     margin-top:0.5rem;
     /* border:1px solid black; */
@@ -134,9 +134,10 @@
 .dev_text{
     color: red;
 }
-.bg_color{
-    /* background-color:#282828 */
-}
+
 .error_text{
     color:red;
+  }
+  .loader{
+      margin-top: -0.5rem;
   }
