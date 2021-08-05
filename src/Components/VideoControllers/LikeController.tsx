@@ -1,12 +1,14 @@
 import React from 'react'
+import { useAuth } from '../../Context/AuthProvider'
 import { likeClickHandler } from '../../Context/utils/likeClickHandler'
 import { useVideo } from '../../Context/VideoProvider'
 import { IcRoundThumbUp } from '../../Svgs/Svg'
 
 export const LikeController: React.FC<{_id:string}> = ({_id}) => {
     const {dispatch,likedVideo} = useVideo()
+    const {userID,token} = useAuth()
     return (
-        <div className="like_items" onClick={()=>likeClickHandler(_id, dispatch)}>
+        <div className="like_items" onClick={()=>likeClickHandler({_id, dispatch,userID,token})}>
         <IcRoundThumbUp className="iconify playvideoIcons" style={{
                 color: likedVideo
                     ? "#3EA6ff"
