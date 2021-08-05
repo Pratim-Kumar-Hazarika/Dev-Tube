@@ -7,7 +7,7 @@ export function RightVerticalVideos() {
     const [darkMode,setdarkMode] = useState(true)
     const getFilteredVideos = state.allVideos.filter(
         (item) =>
-          item.genre === "sobs" || item.genre === "metal" || item.genre === "rock"
+          item.genre === "course1" || item.genre === "react-course" || item.genre === "typescript"
       );
     return (
         <div className="right_div">
