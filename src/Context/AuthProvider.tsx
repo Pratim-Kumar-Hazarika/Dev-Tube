@@ -4,15 +4,20 @@ import { useNavigate } from "react-router";
 import { loginUser } from "./utils/loginUser";
 
 interface AuthContextType {
-    email :string;
+    email:string;
     setEmail:Dispatch<SetStateAction<string>>;
     password:string;
     setPassword:Dispatch<SetStateAction<string>>;
-    login : boolean;
-    setLogin:Dispatch<SetStateAction<boolean>>;
-    loginUserWithCredentials :Promise<any>
+    name:string;
+    setName:Dispatch<SetStateAction<string>>;
+    loginUserWithCredentials:any;
+    loading:boolean;
+    setLoading:Dispatch<SetStateAction<boolean>>;
+    userID:string;
+    token:string;
+    signoutHandler:()=>void
 }
-const AuthContext = createContext({} as any);
+const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider : FC = ({children}) => {
   const {  token: savedToken, userId: savedUserId } = JSON.parse(localStorage.getItem("login")  || '{}')
@@ -26,6 +31,7 @@ export const AuthProvider : FC = ({children}) => {
     const [password,setPassword] = useState('')
     const [name,setName] = useState('')
     const navigate = useNavigate()
+    const [loading,setLoading] = useState(false)
 
 
     function setUserStatus({token,userId}:any): void{
@@ -36,14 +42,16 @@ export const AuthProvider : FC = ({children}) => {
     }
   
    async function loginUserWithCredentials(userEmail:string,userPassword:string): Promise<void>{
+        setLoading(true)
         try {
             const response = await loginUser(userEmail,userPassword);
             if(response.status === 200){
                setUserStatus(response.data)
-               console.log("user logged in succesfully")
+               setLoading(false)
             }
         } catch (error) {
             console.log("Error occured while logging in")
+            setLoading(false)
         }
    }
 
@@ -54,7 +62,7 @@ export const AuthProvider : FC = ({children}) => {
    }
 
     return (
-        <AuthContext.Provider value={{userID,token,signoutHandler,name,setName,loginUserWithCredentials,email,setEmail,password,setPassword}}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={{email,setEmail,password,setPassword,name,setName,loginUserWithCredentials,loading,setLoading,userID,token,signoutHandler}}>{children}</AuthContext.Provider>
     )
 }
 
