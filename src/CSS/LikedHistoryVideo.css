@@ -103,3 +103,18 @@
 .video_div{
     margin-top: 1rem;
 }
+.liked_hero_image_div{
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.liked_hero_svg{
+  width:40%;
+  margin-top: -8rem;
+}
+@media only screen and (max-width: 800px){
+  .liked_hero_svg{
+    width:60%;
+    margin-top: -8rem;
+  }
+}
