@@ -5,45 +5,45 @@ import { Rows } from "../../Reuseable/Rows";
 export function Row() {
 const {state} = useVideo()
 
-  const metalBlues = state.allVideos.filter(
-    (item) =>  item.genre === "hiphop/rap" || item.genre ==="hiphop"
+  const reactAndTypescript = state.allVideos.filter(
+    (item) =>  item.genre === "react-course" || item.genre ==="typescript"
   );
-  const sobsRock = state.allVideos.filter(
-    (item) => item.genre === "sobs" || item.genre === "rock"
+  const graphqlAndJstalks = state.allVideos.filter(
+    (item) => item.genre === "graphQl-talks" || item.genre === "js-talks"
   );
-  const bluesMetal = state.allVideos.filter(
-    (item) => item.genre === "blues" || item.genre === "metal"
+  const courseAndTeaWithTanay = state.allVideos.filter(
+    (item) => item.genre === "course1" || item.genre === "teaWithTanay"
   );
   return (
     <div className="rows">
       <div style={{marginTop:"2.5rem"}} >
-        <h3>HIPHOP AND RAP</h3>
+        <h3>REACT AND TYPESCRIPT</h3>
         <div className="row-1">
           <div className="flex">
               {
-                  metalBlues.map((item)=>{
+                  reactAndTypescript.map((item)=>{
                       const {_id,thumbnail,image,views,name} = item
                       return <Rows _id={_id} thumbnail={thumbnail} image={image} name={name} views={views}/>
                   })
               }
           </div>
         </div>
-        <h3>SAD AND ROCK</h3>
+        <h3>GRAPHQL AND Js TALKS</h3>
         <div className="row-1">
           <div className="flex">
               {
-                  sobsRock.map((item)=>{
+                  graphqlAndJstalks.map((item)=>{
                       const {_id,thumbnail,image,views,name} = item
                       return <Rows _id={_id} thumbnail={thumbnail} image={image} name={name} views={views}/>
                   })
               }
           </div>
         </div>
-        <h3>SAD AND ROCK</h3>
+        <h3>COURSE 1 AND TEA WITH TANAY</h3>
         <div className="row-1">
           <div className="flex">
               {
-                  bluesMetal.map((item)=>{
+                  courseAndTeaWithTanay.map((item)=>{
                       const {_id,thumbnail,image,views,name} = item
                       return <Rows _id={_id} thumbnail={thumbnail} image={image} name={name} views={views}/>
                   })
