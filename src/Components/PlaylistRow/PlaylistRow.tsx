@@ -3,23 +3,24 @@ import { useVideo } from "../../Context/VideoProvider";
 import { Playlists } from "../../Reuseable/Playlists";
 import "../../CSS/Playlist.css"
 import { IonMdTrash } from "../../Svgs/Svg";
+import { deletePlaylistClickHandler } from "../../Context/utils/deletePlaylist";
+import { useAuth } from "../../Context/AuthProvider";
+import {ReactComponent as HeroImage} from "../../Svgs/playlist.svg"
 export function PlaylistlistRow() {
 const {state,dispatch} = useVideo()
-function deletePlaylistClickHandler(name:string){
-  console.log(name)
-  dispatch({type:"DELETE_ENTIRE_PLAYLIST",payload:{playlistName:name}})
-}
+const {userID,token} = useAuth()
+
   return (
     <div className="rows">
       <div >
-        <span style={{fontSize:"2rem"}}>Your Playlists</span>
+        <span style={{fontSize:"2rem"}}>Your Playlist {state.playlists.length <1 && <span >is Empty</span>}</span>
         {
           state.playlists.map((playlist)=>{
             const {name} = playlist
             return <>
             <div className="playlist_delete">
             <div className="playlist_name_delete">{playlist.name}</div>
-            <div className="icon_size" onClick={()=>deletePlaylistClickHandler(name)}>
+            <div className="icon_size" onClick={()=>deletePlaylistClickHandler({name,dispatch,userID,token})}>
             <IonMdTrash />
             </div>
             </div>
@@ -35,6 +36,11 @@ function deletePlaylistClickHandler(name:string){
              </div>
             </>
           })
+        }
+         {
+          state.playlists.length <1 &&   <div className="hero_image_div">          
+          <HeroImage className="hero_svg"/>
+          </div>
         }
       </div>
     </div>
