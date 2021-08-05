@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { Dispatch } from "react";
 import { Video, VideosFromServer } from "../reducers/video.reducer.types";
@@ -7,7 +6,7 @@ import { Video, VideosFromServer } from "../reducers/video.reducer.types";
 export function getVideosFromServer(dispatch: Dispatch<{ type: "VIDEOS_FROM_SERVER"; payload: { allVideos: Video[] } }>): void {
     (async function () {
         try {
-            const response = await axios.get<VideosFromServer>(`https://stormy-waters-06208.herokuapp.com/video`);
+            const response = await axios.get<VideosFromServer>(`${process.env.REACT_APP_SERVER_URL}/video`);
             if (response.status === 200) {
                 dispatch({ type: "VIDEOS_FROM_SERVER", payload: { allVideos: response.data.videos } });
             }
