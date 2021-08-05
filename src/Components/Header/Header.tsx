@@ -1,14 +1,5 @@
 import "./Header.css";
 import {useLocation, useNavigate} from "react-router-dom";
-import {
-    IconoirSunLight,
-    IcRoundExplore,
-    IcRoundThumbUp,
-    MdiHistory,
-    MdiHome,
-    MdiPlaylistPlus
-} from "../../Svgs/Svg";
-import {Link} from "react-router-dom";
 import HeaderIcons from "../../Reuseable/HeaderIcons";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -46,9 +37,9 @@ export default function Header() {
                 <div className="head_icons" style={{display:hideIcon ?"":"none"}}>
                  <HeaderIcons/>
                 </div>
-                <div className="color_modes" style={{display:hideIcon ?"none":""}}>
+                {/* <div className="color_modes" style={{display:hideIcon ?"none":""}}>
                     <IconoirSunLight className=" nav_icons"/>
-                </div>
+                </div> */}
                 <div style={{display:hideIcon ?"none":""}}>
                     {token ? <button onClick={signoutHandler} className="homebtn ">SIGN OUT</button> :<button onClick={()=>navigate("/login")} className="homebtn ">LOG IN</button>}
                 </div>
