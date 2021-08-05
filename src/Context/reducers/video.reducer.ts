@@ -1,4 +1,4 @@
-import { ReducerInitialState, Video  } from "./video.reducer.types";
+import { ReducerInitialState, Video,Playlist,PlayListName  } from "./video.reducer.types";
 
 
 export const initialState :ReducerInitialState= {
@@ -12,6 +12,9 @@ export const initialState :ReducerInitialState= {
 
   export type ACTION = 
     | {type :"VIDEOS_FROM_SERVER",payload:{allVideos:Video[]}}
+    | {type :"PLAYLIST_FROM_SERVER",payload:{playlists: Playlist[],playlistNames:PlayListName[]}}
+    | {type :"LIKED_VIDEOS_FROM_SERVER",payload:{likedVideos:Video[]}}
+    | {type :"HISTORY_VIDEOS_FROM_SERVER",payload:{historyVideos:Video[]}}
     | {type :"LIKE_CLICK_HANDLER",payload:{videoId :string}}
     | {type :"DISLIKE_CLICK_HANDLER",payload:{videoId:string}}
     | {type :"HISTORY_VIDEOS",payload:{videoId:string}}
@@ -29,6 +32,22 @@ export function reducer(state:ReducerInitialState,action:ACTION){
                 ...state,
                 allVideos:action.payload.allVideos
             };
+        case "PLAYLIST_FROM_SERVER":
+             return {
+                 ...state,
+                 playlists:action.payload.playlists,
+                playlistNames:action.payload.playlistNames
+            };
+        case "LIKED_VIDEOS_FROM_SERVER":
+             return {
+                 ...state,
+                 likedVideos:action.payload.likedVideos
+             };
+        case "HISTORY_VIDEOS_FROM_SERVER":
+              return {
+                 ...state,
+                 historyVideos:action.payload.historyVideos
+             };
         case  "LIKE_CLICK_HANDLER":
             const getLikedVideo = state.allVideos.filter((video)=>video._id === action.payload.videoId);
             const checkIfVideoIdExistinLiked = state.likedVideos.filter((video) =>video._id === action.payload.videoId);
