@@ -10,7 +10,7 @@ export function PlayLists() {
         <div style={{marginTop:"5rem"}}>
         <LeftBar />
          </div>
-        <PlaylistlistRow/>
+        <PlaylistlistRow/> 
     </>
   );
 }
