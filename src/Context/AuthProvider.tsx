@@ -2,6 +2,7 @@ import axios from "axios";
 import {createContext, Dispatch, FC, SetStateAction, useContext, useState} from "react";
 import { useNavigate } from "react-router";
 import { loginUser } from "./utils/loginUser";
+import { setUserStatus } from "./utils/setUserStatus";
 
 interface AuthContextType {
     email:string;
@@ -33,33 +34,26 @@ export const AuthProvider : FC = ({children}) => {
     const navigate = useNavigate()
     const [loading,setLoading] = useState(false)
 
-
-    function setUserStatus({token,userId}:any): void{
-        setToken(token)
-        setUserID(userId)
-        navigate("/")
-        localStorage.setItem("login",JSON.stringify({token,userId}))
-    }
-  
    async function loginUserWithCredentials(userEmail:string,userPassword:string): Promise<void>{
         setLoading(true)
         try {
             const response = await loginUser(userEmail,userPassword);
+            const {token,userId} = response.data
             if(response.status === 200){
-               setUserStatus(response.data)
+               setUserStatus({token,userId,setToken,setUserID,navigate})
                setLoading(false)
             }
         } catch (error) {
             console.log("Error occured while logging in")
             setLoading(false)
         }
-   }
+     }
 
-   function signoutHandler(){
-       localStorage.removeItem("login");
-       navigate("/")
-       setToken(null)
-   }
+        function signoutHandler(){
+            localStorage.removeItem("login");
+            navigate("/")
+            setToken(null)
+        }
 
     return (
         <AuthContext.Provider value={{email,setEmail,password,setPassword,name,setName,loginUserWithCredentials,loading,setLoading,userID,token,signoutHandler}}>{children}</AuthContext.Provider>
