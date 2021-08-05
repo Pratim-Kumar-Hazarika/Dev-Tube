@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "../Login/Login.css"
 import { Formik, Form, Field } from "formik";
 import { validateEmail, validatePassword, validateuserName } from '../../Context/utils/Validations';
@@ -13,7 +13,8 @@ interface MyFormValues {
   }
 export default function SignupForm() {
     const initialValues: MyFormValues = { password: "", email: "",userName:"" };
-    const {email,setEmail,setPassword,password,name,setName} = useAuth()
+    const {email,setEmail,setPassword,password,name,setName} = useAuth();
+    const navigate = useNavigate()
  
     return (<> 
     <div className="login_content">
@@ -50,7 +51,7 @@ export default function SignupForm() {
               )}
             </div>
             <div>
-            <button type="submit" className="login_btn" onClick={()=>signUpHandler({name,email,password})}>Submit</button>
+            <button type="submit" className="login_btn" onClick={()=>signUpHandler({name,email,password,navigate})}>Submit</button>
             <div className="dont_have_account_div">
             <span>Have an account ?</span>
                 <Link to="/login">
