@@ -1,17 +1,26 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import "./Login.css"
 import { Formik, Form, Field } from "formik";
 import { validateEmail, validatePassword } from '../../Context/utils/Validations';
 import { useAuth } from '../../Context/AuthProvider';
+import ClipLoader from "react-spinners/ClipLoader";
 interface MyFormValues {
     password: string;
     email: string;
   }
+
+  
 export default function LoginForm() {
     const initialValues: MyFormValues = { password: "", email: "" };
-    const {email,setEmail,password,setPassword,loginUserWithCredentials} = useAuth()
+    const {email,setEmail,password,setPassword,loginUserWithCredentials,loading} = useAuth()
+    const navigate = useNavigate()
 
+  function userLogin(email:string,password:string){
+    loginUserWithCredentials(email,password)
+    // navigate(state?.from?);
+  }
+ 
     return (<> 
     <div className="login_content">
         <div className="login_heading">
@@ -42,7 +51,17 @@ export default function LoginForm() {
               )}
             </div>
             <div>
-            <button type="submit" className="login_btn" onClick={()=>loginUserWithCredentials(email,password)}>Submit</button>
+            <button style={{cursor:"pointer"}} type="submit" className="login_btn" onClick={()=>{userLogin(email,password)}}>
+              {!loading && "LOGIN"}
+              {loading && ""}
+              <div className="loader"> 
+               <ClipLoader
+                  color={"white"}
+                  loading={loading}
+                  size={25}
+                /></div>
+          
+            </button>
             <div className="dont_have_account_div">
                 <span>Don't have an account ?</span>
                 <Link to="/signup">
