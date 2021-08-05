@@ -22,6 +22,7 @@ const {state} = useVideo()
             </div>
         </div>
         </div>
+        <div className="extra_height"/>
     </>
   );
 }
