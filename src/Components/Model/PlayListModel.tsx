@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useAuth } from '../../Context/AuthProvider'
 import { addVideoToPlaylist } from '../../Context/utils/addVideoToPlaylist'
 import { checkboxCheckHandler } from '../../Context/utils/checkboxCheckHandler'
 import { createPlaylistClickHandler } from '../../Context/utils/createPlaylist'
@@ -14,6 +15,8 @@ export const PlayListModel: React.FC<{_id:string}> = ({_id}) => {
         setShow(false)
         setBgOpacity(false)
       }
+      const {userID,token} = useAuth();
+
     return (
         <div className="model" style={{ display: show ? "" : "none",opacity :bgopacity ?"1":"1" }}>
         <div className="model_save_div">
@@ -26,8 +29,8 @@ export const PlayListModel: React.FC<{_id:string}> = ({_id}) => {
         <div className="input1">
           <input type="checkbox" 
            checked={checkboxCheckHandler({playlistName,_id,state})}
-            onChange={()=>addVideoToPlaylist({playlistName,state,_id,dispatch})} />
-          <div style={{cursor:"pointer"}} onClick={() =>deleteVideoFromPlaylist({playlistName,_id,dispatch})}>
+            onChange={()=>addVideoToPlaylist({playlistName,state,_id,dispatch,userID,token})} />
+          <div style={{cursor:"pointer"}} onClick={() =>deleteVideoFromPlaylist({playlistName,_id,dispatch,userID,token})}>
             <EntypoSquaredCross className="iconify crossIcon"/>
           </div>
           <label className="playlist_name"> {playlistName} </label>
@@ -37,7 +40,7 @@ export const PlayListModel: React.FC<{_id:string}> = ({_id}) => {
         <div className="add_model">
           <input className="add_playlist_input_box" type="input"  placeholder="New Playlist"  value={playlistInput}
             onChange={(e)=>setPlaylistInput(e.target.value)} />
-          <button className="create_btn" onClick={()=>createPlaylistClickHandler({dispatch,playlistInput,setPlaylistInput})}>
+          <button className="create_btn" onClick={()=>createPlaylistClickHandler({dispatch,playlistInput,setPlaylistInput,userID,token})}>
             CREATE
           </button>
         </div>
