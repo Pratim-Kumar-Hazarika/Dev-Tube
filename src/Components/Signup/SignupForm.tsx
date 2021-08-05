@@ -6,6 +6,7 @@ import { validateEmail, validatePassword, validateuserName } from '../../Context
 import { useVideo } from '../../Context/VideoProvider';
 import { useAuth } from '../../Context/AuthProvider';
 import { signUpHandler } from '../../Context/utils/signUpHandler';
+import ClipLoader from "react-spinners/ClipLoader";
 interface MyFormValues {
     password: string;
     email: string;
@@ -13,7 +14,7 @@ interface MyFormValues {
   }
 export default function SignupForm() {
     const initialValues: MyFormValues = { password: "", email: "",userName:"" };
-    const {email,setEmail,setPassword,password,name,setName} = useAuth();
+    const {email,setEmail,setPassword,password,name,setName,loading,setLoading} = useAuth();
     const navigate = useNavigate()
  
     return (<> 
@@ -51,7 +52,16 @@ export default function SignupForm() {
               )}
             </div>
             <div>
-            <button type="submit" className="login_btn" onClick={()=>signUpHandler({name,email,password,navigate})}>Submit</button>
+            <button type="submit" className="login_btn" onClick={()=>signUpHandler({name,email,password,navigate,setLoading})}>
+            {!loading && "SUBMIT"}
+              {loading && ""}
+            <div className="loader"> 
+               <ClipLoader
+                  color={"white"}
+                  loading={loading}
+                  size={25}
+                /></div>
+            </button>
             <div className="dont_have_account_div">
             <span>Have an account ?</span>
                 <Link to="/login">
