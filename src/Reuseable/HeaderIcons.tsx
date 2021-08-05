@@ -38,9 +38,9 @@ export default function HeaderIcons() {
                 </Link>
             </div>
 
-            <div >
+            {/* <div >
                 <IconoirSunLight className="nav_icons"/>
-            </div>
+            </div> */}
             <div>
             {token ? <button onClick={signoutHandler} className="homebtn ">SIGN OUT</button> :<button onClick={()=>navigate("/login")} className="homebtn ">LOG IN</button>}
             </div>
