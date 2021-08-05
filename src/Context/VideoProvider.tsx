@@ -1,6 +1,10 @@
 import  { FC,createContext, Dispatch, useContext, useEffect, useReducer, useState, SetStateAction } from "react";
+import { useAuth } from "./AuthProvider";
 import { ACTION, initialState, reducer } from "./reducers/video.reducer";
 import { ReducerInitialState } from "./reducers/video.reducer.types";
+import { getUserHistoryVideosFromServer } from "./utils/getUserHistoryVideosFromServer";
+import { getUserLikedVideosFromServer } from "./utils/getUserLikedVideosFromServer";
+import { getUserPlaylistFromServer } from "./utils/getUserPlayistFromServer";
 import { getVideosFromServer } from "./utils/getVideos";
 
 interface ContextType {
@@ -24,11 +28,14 @@ export const VideoProvider: FC = ({children}:any) => {
     const [show,setShow] = useState(false)
     const [likedVideo,setLikedVideo] = useState(false);
     const [dislikedVideo,setDislikedVideo] = useState(false);
-      
+    const {userID,token} = useAuth();
     useEffect(()=>{
         getVideosFromServer(dispatch);
-      
+        getUserPlaylistFromServer({dispatch,token,userID})
+        getUserLikedVideosFromServer({dispatch,token,userID})
+        getUserHistoryVideosFromServer({dispatch,token,userID})
     },[])
+
     return <VideoContext.Provider value={{state,dispatch,bgopacity,setBgOpacity,show,setShow,dislikedVideo,setDislikedVideo,likedVideo,setLikedVideo}}>{children}</VideoContext.Provider>
 }
 
