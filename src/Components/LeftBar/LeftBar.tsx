@@ -24,7 +24,7 @@ export function LeftBar() {
                 </div>
             </Link>
             <Link
-                to="/genre"
+                to="/explore"
                 style={{
                 textDecoration: "none"
             }}>
