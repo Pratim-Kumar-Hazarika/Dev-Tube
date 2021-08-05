@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { IonMdTrash } from "../Svgs/Svg"
 import { useVideo } from "../Context/VideoProvider"
 import { deleteVideoFromPlaylist } from "../Context/utils/deleteVideoFromPlaylist"
+import { useAuth } from "../Context/AuthProvider"
 
 
 
@@ -17,6 +18,7 @@ export type PlaylistProps = {
 }
 export const Playlists: React.FC<PlaylistProps> = ({_id,thumbnail,image,name,playlistName}) => {
     const {dispatch} = useVideo()
+    const {userID,token} = useAuth()
    
     return (
         <div className="playlist_row">
@@ -36,7 +38,7 @@ export const Playlists: React.FC<PlaylistProps> = ({_id,thumbnail,image,name,pla
               <div className="playlist_video_text">
                 {name.slice(0,25) + "..."}
               </div>
-              <div className="trash" onClick={()=>deleteVideoFromPlaylist({playlistName,_id,dispatch})}><IonMdTrash/></div>
+              <div className="trash" onClick={()=>deleteVideoFromPlaylist({playlistName,_id,dispatch,userID,token})}><IonMdTrash/></div>
             </div>
           </div>
         </div>
