@@ -7,7 +7,7 @@ export type Video = {
     views: string;
     image: string;
     thumbnail: string;
-    _v: string;
+    __v: string;
 }
 export type VideosFromServer = {
     videos: Video[]
