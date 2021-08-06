@@ -10,6 +10,7 @@ import { PlayLists } from './Screens/Playlists';
 import { PrivateRoute } from './Components/PrivateRoutes/PrivateRoute';
 import Topics from './Screens/Topics';
 
+
 function App() {
   return (
     <div className="App">
