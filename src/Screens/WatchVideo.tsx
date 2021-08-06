@@ -12,7 +12,6 @@ import {  PlayListModel } from "../Components/Model/PlayListModel";
 import { LikeController } from "../Components/VideoControllers/LikeController";
 import { UnlikeController } from "../Components/VideoControllers/UnlikeController";
 import { PlaylistController } from "../Components/VideoControllers/PlaylistController";
-import { ShareVideo } from "../Components/VideoControllers/ShareVideo";
 import { useAuth } from "../Context/AuthProvider";
 import { SignInMessageModel } from "../Components/Model/SignInMessageModel";
 
@@ -22,12 +21,15 @@ const {state, dispatch,bgopacity,setDislikedVideo,setLikedVideo} = useVideo();
 const itemFound = state.allVideos.filter((item) => item._id === String(videoId));
 const {_id,image, views,name, url,artist} = itemFound[0] || {}
 const {userID,token} = useAuth()
+
 useEffect(() => {
   likeUnlikeColorHandler({state, setDislikedVideo, setLikedVideo, _id});
+// eslint-disable-next-line
 }, [state, videoId])
 
 useEffect(() => {
   historyVideoHandler({_id, dispatch,userID,token})
+// eslint-disable-next-line
 }, [videoId])
 
 return ( <>
