@@ -11,7 +11,7 @@ export type HistoryHandler = {
 
 export  async function historyVideoHandler({_id,dispatch,userID,token}:HistoryHandler) {
       try {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/history/video`,{
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/history/video`,{
          _id
         },{
           headers:{

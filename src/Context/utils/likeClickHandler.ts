@@ -11,7 +11,7 @@ export type LikeClickHandler = {
 
 export  async function likeClickHandler({_id,dispatch,userID,token}:LikeClickHandler) {
       try {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/liked/video`,{
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/liked/video`,{
          _id
         },{
           headers:{
