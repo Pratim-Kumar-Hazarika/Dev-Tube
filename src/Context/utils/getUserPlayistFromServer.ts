@@ -11,7 +11,7 @@ export type GetPlaylistFromServer = {
 export function getUserPlaylistFromServer({dispatch,token,userID}:GetPlaylistFromServer): void {
     (async function () {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_LOCAL_HOST}/user/${userID}/playlists`,{
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/playlists`,{
                 headers:{
                     authorization:token
                 }

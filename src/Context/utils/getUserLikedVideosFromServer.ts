@@ -11,7 +11,7 @@ export type GetLikedVideosFromServer = {
 export function getUserLikedVideosFromServer({dispatch,token,userID}:GetLikedVideosFromServer): void {
     (async function () {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_LOCAL_HOST}/user/${userID}/liked/video`,{
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/liked/video`,{
                 headers:{
                     authorization:token
                 }
