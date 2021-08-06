@@ -11,7 +11,7 @@ export type GetLikedVideosFromServer = {
 export function getUserLikedVideosFromServer({dispatch,token,userID}:GetLikedVideosFromServer): void {
     (async function () {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/liked/video`,{
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/liked/video`,{
                 headers:{
                     authorization:token
                 }
@@ -22,7 +22,7 @@ export function getUserLikedVideosFromServer({dispatch,token,userID}:GetLikedVid
             }
             return response.data.videos;
         } catch (error) {
-            console.log("error while getting all the videos from server");
+            return error;
         }
     })();
 }
