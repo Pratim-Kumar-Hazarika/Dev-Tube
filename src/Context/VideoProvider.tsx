@@ -34,15 +34,15 @@ export const VideoProvider: FC = ({children}:any) => {
     const [show,setShow] = useState(false)
     const [likedVideo,setLikedVideo] = useState(false);
     const [dislikedVideo,setDislikedVideo] = useState(false);
-    const {userID,token,setUserID} = useAuth();
+    const {token} = useAuth();
     const [loader,setLoader] = useState(false);
     const [showsignInModel,setShowSignInModel] = useState(false)
     const [signInModelOpacity,setSignInModelOpacity] = useState(false)
     useEffect(()=>{
         getVideosFromServer(dispatch,setLoader);
-        getUserPlaylistFromServer({dispatch,token,userID})
-        getUserLikedVideosFromServer({dispatch,token,userID})
-        getUserHistoryVideosFromServer({dispatch,token,userID})
+        getUserPlaylistFromServer({dispatch,token})
+        getUserLikedVideosFromServer({dispatch,token})
+        getUserHistoryVideosFromServer({dispatch,token})
     },[token])
    
     return <VideoContext.Provider value={{state,dispatch,bgopacity,setBgOpacity,show,setShow,dislikedVideo,setDislikedVideo,likedVideo,setLikedVideo,loader,setLoader,showsignInModel,setShowSignInModel,signInModelOpacity,setSignInModelOpacity,}}>{children}</VideoContext.Provider>
