@@ -1,0 +1,49 @@
+.sign_in_model{
+    position: absolute;
+    margin-top: 8rem;
+    overflow: hidden;
+    margin-left: 35rem;
+    width: 430px;
+    top: 55%;
+    left: 45%;
+    margin: -100px 0 0 -150px;
+    padding: 1rem;
+    background-color: #212121;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    z-index: 1;
+}
+.btn_div{
+    display: flex;
+    justify-content: flex-end;
+}
+.sign_in_model_cancel_btn,.sign_in_model_login_btn{
+    background:none;
+    border: 0px;
+    padding:0.5rem;
+    cursor: pointer;
+}
+.sign_in_model_cancel_btn {
+    color:#1A73E8
+}
+.sign_in_model_cancel_btn:hover{
+    background-color: rgba(99,95,104,0.039);
+    border-radius: 1px;
+    border-radius: 0.3rem;
+}
+.sign_in_model_login_btn:hover{
+    background-color: rgba(99,95,104,0.039);
+    border-radius: 1px;
+    border-radius: 0.3rem;
+}
+.delete_model_text{
+    color: white;
+    font-size: 0.95rem;
+}
+.sign_in_model_login_btn{
+    color: white;
+}
+@media only screen and (max-width: 800px){
+    .sign_in_model {
+      width:300px
+    }
+  }
