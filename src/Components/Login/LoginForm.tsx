@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./Login.css"
 import { Formik, Form, Field } from "formik";
 import { validateEmail, validatePassword } from '../../Context/utils/Validations';
@@ -14,11 +13,10 @@ interface MyFormValues {
 export default function LoginForm() {
     const initialValues: MyFormValues = { password: "", email: "" };
     const {email,setEmail,password,setPassword,loginUserWithCredentials,loading} = useAuth()
-    const navigate = useNavigate()
 
   function userLogin(email:string,password:string){
     loginUserWithCredentials(email,password)
-    // navigate(state?.from?);
+    
   }
  
     return (<> 
