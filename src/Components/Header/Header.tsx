@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-use-before-define
 import "./Header.css";
 import {useLocation, useNavigate} from "react-router-dom";
 import HeaderIcons from "../../Reuseable/HeaderIcons";
@@ -18,6 +19,7 @@ export default function Header() {
         if(state.pathname===`/video/${videoId}`){
             setHideIcon(true)
         }
+// eslint-disable-next-line
    },[state.pathname])
    
     return (
