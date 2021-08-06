@@ -11,7 +11,7 @@ export type DeleteVideoFromPlaylist = {
 }
 export async function deleteVideoFromPlaylist({playlistName,_id,dispatch,userID,token}:DeleteVideoFromPlaylist){
         try {
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/playlists/video/delete`,{
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/playlists/video/delete`,{
                 name:playlistName,
                 videoId:_id
             },{
