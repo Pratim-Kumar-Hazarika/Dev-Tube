@@ -1,8 +1,10 @@
 import { useEffect } from "react"
-import { Router, useLocation, useNavigate } from "react-router"
+import {  useLocation, useNavigate } from "react-router"
 import { useVideo } from "../../Context/VideoProvider"
 import "../../CSS/SignInModel.css"
+// eslint-disable-next-line
 export const SignInMessageModel: React.FC<{}> = ({}) => {
+// eslint-disable-next-line
     const {setBgOpacity,bgopacity,showsignInModel,setShowSignInModel,setShow} = useVideo()
     const navigte = useNavigate()
     const pathname = useLocation()
@@ -19,6 +21,7 @@ export const SignInMessageModel: React.FC<{}> = ({}) => {
         setShowSignInModel(false)
         setBgOpacity(false)
         setShow(false)
+// eslint-disable-next-line
     },[pathname])
     return (
         <>
