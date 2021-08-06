@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Navigate } from 'react-router-dom';
 import axios from "axios"
 import { NavigateFunction } from 'react-router';
 
@@ -30,8 +29,8 @@ export async function signUpHandler({name,email,password,navigate,setLoading}:Si
            setLoading(false)
        }
     } catch (error) {
-        console.log("Error while adding user to db",error)
         setLoading(false)
+        return error;
     }
 
 }
