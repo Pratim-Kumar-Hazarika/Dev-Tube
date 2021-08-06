@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "react";
 import { ACTION } from "../reducers/video.reducer";
-import { Video, VideosFromServer } from "../reducers/video.reducer.types";
+
 
 export type GetPlaylistFromServer = {
     dispatch :Dispatch<ACTION>;
@@ -11,7 +11,7 @@ export type GetPlaylistFromServer = {
 export function getUserPlaylistFromServer({dispatch,token,userID}:GetPlaylistFromServer): void {
     (async function () {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/playlists`,{
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/playlists`,{
                 headers:{
                     authorization:token
                 }
@@ -28,7 +28,7 @@ export function getUserPlaylistFromServer({dispatch,token,userID}:GetPlaylistFro
             }
             return response.data.videos;
         } catch (error) {
-            console.log("error while getting all the videos from server");
+            return error;
         }
     })();
 }
