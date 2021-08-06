@@ -26,7 +26,7 @@ export const PlayListModel: React.FC<{_id:string}> = ({_id}) => {
           </button>
         </div>
         {state.playlistNames.map((playlistName) => (
-        <div className="input1">
+        <div key={playlistName} className="input1">
           <input type="checkbox" 
            checked={checkboxCheckHandler({playlistName,_id,state})}
             onChange={()=>addVideoToPlaylist({playlistName,state,_id,dispatch,userID,token})} />
