@@ -12,7 +12,7 @@ export function getVideosFromServer(dispatch: Dispatch<{ type: "VIDEOS_FROM_SERV
             }
             return response.data.videos;
         } catch (error) {
-            console.log("error while getting all the videos from server");
+           return error;
         }
     })();
 }
