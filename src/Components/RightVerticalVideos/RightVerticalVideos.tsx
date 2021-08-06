@@ -13,7 +13,6 @@ export function RightVerticalVideos() {
       );
       
       useEffect(() => {
-        console.log("called")
         window.scrollTo(0, 0);
       }, [pathname]);
     return (
