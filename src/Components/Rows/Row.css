@@ -82,7 +82,7 @@
   /* large */
   @media only screen and (min-width: 800px) {
     .rows {
-      margin-left: 12rem;
+      margin-left: 13rem;
       overflow: hidden;
       margin-top: 5rem;
       padding-top:0.3rem;
