@@ -49,7 +49,7 @@ return ( <>
                 <div className="video_controllers">
                  <LikeController _id={_id}/>
                   <UnlikeController _id={_id}/>
-                  <ShareVideo/>
+                  {/* <ShareVideo/> */}
                  <PlaylistController/>
                 </div>
               </div>
@@ -60,7 +60,7 @@ return ( <>
                   <img className="image_avatar_play" src={image} alt="avatar" />
                 </div>
                 <span className="artist__name">{artist}
-                  ♪</span>
+                  </span>
               </div>
             </div>
           </div>
