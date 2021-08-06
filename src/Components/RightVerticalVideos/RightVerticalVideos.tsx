@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router';
 import { Link } from "react-router-dom";
 import { useVideo } from '../../Context/VideoProvider';
 
 export function RightVerticalVideos() {
     const {state} = useVideo()
-    const [darkMode,setdarkMode] = useState(true)
+    const [darkMode,setdarkMode] = useState(true);
+    const { pathname } = useLocation();
     const getFilteredVideos = state.allVideos.filter(
         (item) =>
           item.genre === "course1" || item.genre === "react-course" || item.genre === "typescript"
       );
+      
+      useEffect(() => {
+        console.log("called")
+        window.scrollTo(0, 0);
+      }, [pathname]);
     return (
         <div className="right_div">
         {getFilteredVideos.map((item) => {
@@ -31,7 +38,7 @@ export function RightVerticalVideos() {
                       {name}
                     </h3>
                     <span style={{ color: darkMode ? "#aaaaaa" : "#606060" }}>
-                      {artist} ♪
+                      {artist}
                     </span>
                     <div>
                       <span>
