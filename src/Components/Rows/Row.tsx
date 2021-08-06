@@ -23,7 +23,7 @@ const {state} = useVideo()
               {
                   reactAndTypescript.map((item)=>{
                       const {_id,thumbnail,image,views,name} = item
-                      return <Rows _id={_id} thumbnail={thumbnail} image={image} name={name} views={views}/>
+                      return <Rows _id={_id} key={_id} thumbnail={thumbnail} image={image} name={name} views={views}/>
                   })
               }
           </div>
