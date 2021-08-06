@@ -18,7 +18,7 @@ const {state} = useVideo()
           {state.likedVideos.map((item) => {
             const { _id, thumbnail, name, artist } = item;
             return (<>
-              <Thumbnail name={name} artist={artist} thumbnail={thumbnail} _id={_id}/>
+              <Thumbnail key={_id} name={name} artist={artist} thumbnail={thumbnail} _id={_id}/>
               </>
             );
           })}

@@ -17,7 +17,9 @@ export default function Topics() {
            <div style={{marginTop:"5rem"}}>
            {
                filteredBlues.map(({url,name,artist,views,image,thumbnail,_id})=>(
-                <Topic url={url}
+                <Topic
+                key={_id}
+                 url={url}
                 name={name}
                 artist={artist}
                 views={views}
