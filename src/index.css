@@ -28,3 +28,6 @@ body {
 .extra_height{
   height: 5vh;
 }
+.left_div{
+  margin-left: 0;
+}
