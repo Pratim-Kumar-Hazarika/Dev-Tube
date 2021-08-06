@@ -52,7 +52,7 @@
     color: white;
   }
   .left_div{
-      margin-left: 0;
+      /* margin-left: 0; */
       padding: 0;
   }
 }
