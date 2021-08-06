@@ -5,7 +5,7 @@ import { useVideo } from '../../Context/VideoProvider';
 
 export function RightVerticalVideos() {
     const {state} = useVideo()
-    const [darkMode,setdarkMode] = useState(true);
+    const [darkMode] = useState(true);
     const { pathname } = useLocation();
     const getFilteredVideos = state.allVideos.filter(
         (item) =>
