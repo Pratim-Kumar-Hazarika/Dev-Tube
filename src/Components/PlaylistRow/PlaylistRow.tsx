@@ -13,7 +13,7 @@ const {userID,token} = useAuth()
   return (
     <div className="rows">
       <div >
-        <span style={{fontSize:"2rem"}}>Your Playlist {state.playlists.length <1 && <span >is Empty</span>}</span>
+        <div style={{fontSize:"2rem",marginTop:"2rem"}}>Your Playlist {state.playlists.length <1 && <span >is Empty</span>}</div>
         {
           state.playlists.map((playlist)=>{
             const {name} = playlist
