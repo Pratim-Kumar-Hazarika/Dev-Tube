@@ -18,6 +18,8 @@ interface ContextType {
     setLikedVideo:React.Dispatch<SetStateAction<boolean>>
     dislikedVideo:boolean
     setDislikedVideo:React.Dispatch<SetStateAction<boolean>>
+    loader:boolean;
+    setLoader:React.Dispatch<SetStateAction<boolean>>
 }
 
 const VideoContext = createContext({} as ContextType);
@@ -29,14 +31,15 @@ export const VideoProvider: FC = ({children}:any) => {
     const [likedVideo,setLikedVideo] = useState(false);
     const [dislikedVideo,setDislikedVideo] = useState(false);
     const {userID,token,setUserID} = useAuth();
+    const [loader,setLoader] = useState(false)
     useEffect(()=>{
-        getVideosFromServer(dispatch);
+        getVideosFromServer(dispatch,setLoader);
         getUserPlaylistFromServer({dispatch,token,userID})
         getUserLikedVideosFromServer({dispatch,token,userID})
         getUserHistoryVideosFromServer({dispatch,token,userID})
     },[token])
    
-    return <VideoContext.Provider value={{state,dispatch,bgopacity,setBgOpacity,show,setShow,dislikedVideo,setDislikedVideo,likedVideo,setLikedVideo}}>{children}</VideoContext.Provider>
+    return <VideoContext.Provider value={{state,dispatch,bgopacity,setBgOpacity,show,setShow,dislikedVideo,setDislikedVideo,likedVideo,setLikedVideo,loader,setLoader}}>{children}</VideoContext.Provider>
 }
 
 

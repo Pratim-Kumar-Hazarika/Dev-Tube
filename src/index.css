@@ -31,3 +31,16 @@ body {
 .left_div{
   margin-left: 0;
 }
+.loader_div {
+  /* border: 1px solid white; */
+  width: 400px;
+  margin: auto;
+  color: white;
+  display:grid;
+  place-content: center;
+  position: absolute;
+  margin-top: 14rem;
+  left: 25%;
+  right: 25%;
+  
+}
