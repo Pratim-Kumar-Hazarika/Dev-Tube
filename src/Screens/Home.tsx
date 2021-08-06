@@ -4,7 +4,7 @@ import {Row} from '../Components/Rows/Row'
 import RingLoader from "react-spinners/RingLoader";
 import { useVideo } from '../Context/VideoProvider';
 export default function Home() {
-const {state,loader} = useVideo();
+const {loader} = useVideo();
 return (
 <>
     <Header />
