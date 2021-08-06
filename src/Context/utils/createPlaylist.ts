@@ -12,7 +12,7 @@ type CreatePlaylist = {
 export async function createPlaylistClickHandler({dispatch,playlistInput,setPlaylistInput,userID,token}:CreatePlaylist){
     if(playlistInput !== ""){
       try {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/playlists`,{
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/playlists`,{
           name :playlistInput
         },
         {

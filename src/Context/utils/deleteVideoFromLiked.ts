@@ -10,7 +10,7 @@ export type DeleteVideoFromLiked = {
 }
 export async function deleteVideoFromLiked({_id,dispatch,userID,token}:DeleteVideoFromLiked){
     try {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/liked/video/delete`,{
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/liked/video/delete`,{
             _id:_id
         },{
             headers:{

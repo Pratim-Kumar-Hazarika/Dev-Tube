@@ -17,7 +17,7 @@ export async function addVideoToPlaylist( {playlistName,state,_id,dispatch,userI
     const checkVideoIfInPlaylist = getPlaylist[0].video.filter((video)=>video._id === _id)
     if(checkVideoIfInPlaylist.length <1){
         try {
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/playlists/video`,{
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/playlists/video`,{
                 name:playlistName,
                 videoId:_id
             },{
