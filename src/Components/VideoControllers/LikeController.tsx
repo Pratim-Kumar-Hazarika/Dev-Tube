@@ -5,10 +5,10 @@ import { useVideo } from '../../Context/VideoProvider'
 import { IcRoundThumbUp } from '../../Svgs/Svg'
 
 export const LikeController: React.FC<{_id:string}> = ({_id}) => {
-    const {dispatch,likedVideo} = useVideo()
+    const {dispatch,likedVideo,setShowSignInModel,setBgOpacity} = useVideo()
     const {userID,token} = useAuth()
     return (
-        <div className="like_items" onClick={()=>likeClickHandler({_id, dispatch,userID,token})}>
+        <div className="like_items" onClick={()=>likeClickHandler({_id, dispatch,userID,token,setShowSignInModel,setBgOpacity})}>
         <IcRoundThumbUp className="iconify playvideoIcons" style={{
                 color: likedVideo
                     ? "#3EA6ff"
