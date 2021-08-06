@@ -1,12 +1,19 @@
 import React from 'react'
+import { useAuth } from '../../Context/AuthProvider'
 import {useVideo} from '../../Context/VideoProvider'
 import {MdiPlaylistPlus} from '../../Svgs/Svg'
 
 export const PlaylistController : React.FC < {} > = () => {
-    const {setShow, setBgOpacity} = useVideo()
+    const {setShow, setShowSignInModel,setBgOpacity} = useVideo()
+    const {token} = useAuth()
     function showModelHandler() {
-        setShow(true)
-        setBgOpacity(true)
+        if(token){
+            setShow(true)
+            setBgOpacity(true)
+        }else{
+            setShowSignInModel(true)
+             setBgOpacity(true)
+        }
     }
 
     return (
