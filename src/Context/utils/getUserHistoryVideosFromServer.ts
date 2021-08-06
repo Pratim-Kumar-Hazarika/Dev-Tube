@@ -11,7 +11,7 @@ export type GetHistoryVideosFromServer = {
 export function getUserHistoryVideosFromServer({dispatch,token,userID}:GetHistoryVideosFromServer): void {
     (async function () {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_LOCAL_HOST}/user/${userID}/history/video`,{
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/history/video`,{
                 headers:{
                     authorization:token
                 }

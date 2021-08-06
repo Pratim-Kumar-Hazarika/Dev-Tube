@@ -10,7 +10,7 @@ export type DeleteVideoFromHistory = {
 }
 export async function deleteVideoFromHistory({_id,dispatch,userID,token}:DeleteVideoFromHistory){
     try {
-        const response = await axios.post(`${process.env.REACT_APP_LOCAL_HOST}/user/${userID}/history/video/delete`,{
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/history/video/delete`,{
             _id:_id
         },{
             headers:{

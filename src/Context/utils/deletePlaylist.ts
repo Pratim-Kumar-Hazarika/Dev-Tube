@@ -10,7 +10,7 @@ export type DeletePlaylist = {
 
 export async function deletePlaylistClickHandler({name,dispatch,userID,token}:DeletePlaylist){
     try {
-        const response = await axios.post(`${process.env.REACT_APP_LOCAL_HOST}/user/${userID}/playlists/delete`,{
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/playlists/delete`,{
             name:name
         },{
             headers:{
