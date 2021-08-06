@@ -35,18 +35,18 @@ export default function SignupForm() {
           <Form>
               <div className="email_div">
             <div>Name</div>
-              <Field name="userName" validate={(value:string)=>validateuserName({value,setName})} className="password_input"/>
+              <Field name="userName" validate={(value:string)=>validateuserName({value,setName})} className="password-input"/>
               {errors.userName && touched.userName && <div className="error_text">{errors.userName}</div>}
             </div>
             <div className="email_div">
             <div>Email</div>
-              <Field name="email" validate={(value:string)=>validateEmail({value,setEmail})} className="password_input"/>
+              <Field name="email" validate={(value:string)=>validateEmail({value,setEmail})} className="password-input"/>
               {errors.email && touched.email && <div className="error_text">{errors.email}</div>}
             </div>
             
             <div className="password_div">
             <div>Password</div>
-              <Field name="password" validate={(value:string)=>validatePassword({value,setPassword})} className="password_input" type="password"/>
+              <Field name="password" validate={(value:string)=>validatePassword({value,setPassword})} className="password-input" type="password"/>
               {errors.password && touched.password && (
                 <div className="error_text">{errors.password}</div>
               )}
