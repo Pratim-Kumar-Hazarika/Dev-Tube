@@ -1,5 +1,4 @@
-import axios from "axios";
-import {createContext, Dispatch, FC, SetStateAction, useContext, useEffect, useState} from "react";
+import {createContext, Dispatch, FC, SetStateAction, useContext, useState} from "react";
 import { useNavigate } from "react-router";
 import { loginUser } from "./utils/loginUser";
 import { setUserStatus } from "./utils/setUserStatus";

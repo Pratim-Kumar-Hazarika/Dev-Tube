@@ -1,4 +1,4 @@
-import { Navigate, NavigateFunction } from 'react-router';
+import { NavigateFunction } from 'react-router';
 import { Dispatch, SetStateAction } from 'react';
 
 export type SetUserStatus= {

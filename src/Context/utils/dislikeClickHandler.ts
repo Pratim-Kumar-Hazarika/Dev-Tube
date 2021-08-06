@@ -1,4 +1,3 @@
-import { Location, State } from 'history';
 import { Dispatch, SetStateAction } from 'react';
 import { ACTION } from '../reducers/video.reducer';
 import { deleteVideoFromLiked } from './deleteVideoFromLiked';

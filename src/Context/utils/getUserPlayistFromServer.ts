@@ -6,9 +6,8 @@ import { ACTION } from "../reducers/video.reducer";
 export type GetPlaylistFromServer = {
     dispatch :Dispatch<ACTION>;
     token:string;
-    userID:string
 }
-export function getUserPlaylistFromServer({dispatch,token,userID}:GetPlaylistFromServer): void {
+export function getUserPlaylistFromServer({dispatch,token}:GetPlaylistFromServer): void {
     (async function () {
         try {
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/playlists`,{

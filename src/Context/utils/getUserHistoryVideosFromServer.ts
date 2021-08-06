@@ -5,9 +5,8 @@ import { ACTION } from "../reducers/video.reducer";
 export type GetHistoryVideosFromServer = {
     dispatch :Dispatch<ACTION>;
     token:string;
-    userID:string
 }
-export function getUserHistoryVideosFromServer({dispatch,token,userID}:GetHistoryVideosFromServer): void {
+export function getUserHistoryVideosFromServer({dispatch,token}:GetHistoryVideosFromServer): void {
     (async function () {
         try {
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/history/video`,{

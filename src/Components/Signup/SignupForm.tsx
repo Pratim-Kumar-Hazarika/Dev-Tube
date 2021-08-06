@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "../Login/Login.css"
 import { Formik, Form, Field } from "formik";
 import { validateEmail, validatePassword, validateuserName } from '../../Context/utils/Validations';
-import { useVideo } from '../../Context/VideoProvider';
 import { useAuth } from '../../Context/AuthProvider';
 import { signUpHandler } from '../../Context/utils/signUpHandler';
 import ClipLoader from "react-spinners/ClipLoader";

@@ -1,7 +1,7 @@
 import "./Topic.css";
 import { Link } from "react-router-dom";
 
-export type Topic = {
+export type TopicTypes = {
     url:string;
     name:string;
     artist:string;
@@ -19,7 +19,7 @@ export default function Topic({
   image,
   thumbnail,
   id
-}:Topic)  {
+}:TopicTypes)  {
   return (
     <div className="ds_mainDiv">
       <div className="topic_video_contents" >
