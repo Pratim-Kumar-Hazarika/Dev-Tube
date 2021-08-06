@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../Context/AuthProvider';
-import { IconoirSunLight, IcRoundExplore, IcRoundThumbUp, MdiHistory, MdiHome, MdiPlaylistPlus } from '../Svgs/Svg'
+import {  IcRoundExplore, IcRoundThumbUp, MdiHistory, MdiHome, MdiPlaylistPlus } from '../Svgs/Svg'
 
 export default function HeaderIcons() {
     const navigate = useNavigate();
