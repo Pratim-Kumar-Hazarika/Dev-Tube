@@ -1,7 +1,6 @@
 import axios from "axios";
 import {createContext, Dispatch, FC, SetStateAction, useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router";
-import { getUserIdFromServer } from "./utils/getUserIdFromServer";
 import { loginUser } from "./utils/loginUser";
 import { setUserStatus } from "./utils/setUserStatus";
 
@@ -35,22 +34,18 @@ export const AuthProvider : FC = ({children}) => {
     const navigate = useNavigate()
     const [loading,setLoading] = useState(false)
 
-
- 
-
    async function loginUserWithCredentials(userEmail:string,userPassword:string): Promise<void>{
         setLoading(true)
         try {
             const response = await loginUser(userEmail,userPassword);
             const {token,userId} = response.data
             if(response.status === 200){
-                getUserIdFromServer(token,setUserID)
                setUserStatus({token,userId,setToken,setUserID,navigate})
                setLoading(false)
             }
         } catch (error) {
-            console.log("Error occured while logging in")
             setLoading(false)
+            return;
         }
      }
 
