@@ -11,6 +11,7 @@ export function PlayLists() {
         <LeftBar />
          </div>
         <PlaylistlistRow/> 
+        <div className="extra_height"/>
     </>
   );
 }
