@@ -2,7 +2,6 @@ import axios from "axios";
 import { Dispatch } from "react";
 import { ACTION } from "../reducers/video.reducer";
 
-
 export type GetHistoryVideosFromServer = {
     dispatch :Dispatch<ACTION>;
     token:string;
@@ -11,7 +10,7 @@ export type GetHistoryVideosFromServer = {
 export function getUserHistoryVideosFromServer({dispatch,token,userID}:GetHistoryVideosFromServer): void {
     (async function () {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${userID}/history/video`,{
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/history/video`,{
                 headers:{
                     authorization:token
                 }
@@ -21,7 +20,7 @@ export function getUserHistoryVideosFromServer({dispatch,token,userID}:GetHistor
             }
             return response.data.videos;
         } catch (error) {
-            console.log("error while getting all the videos from server");
+           return error;
         }
     })();
 }
