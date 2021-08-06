@@ -1,6 +1,6 @@
 import { Navigate, NavigateFunction } from 'react-router';
 import { Dispatch, SetStateAction } from 'react';
-import { State } from 'history';
+
 export type SetUserStatus= {
     token:string;
     userId:string;
