@@ -13,5 +13,5 @@ export function setUserStatus({token,userId,setToken,setUserID,navigate}:SetUser
     setToken(token)
     setUserID(userId)
     navigate("/")
-    localStorage.setItem("login",JSON.stringify({token,userId}))
+    localStorage.setItem("login",JSON.stringify({token}))
 }
