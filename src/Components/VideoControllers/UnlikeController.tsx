@@ -5,10 +5,10 @@ import { useVideo } from '../../Context/VideoProvider'
 import { MdiThumbDown } from '../../Svgs/Svg'
 
 export const UnlikeController : React.FC < {_id:string} > = ({_id}) => {
-    const {dispatch,dislikedVideo} = useVideo()
+    const {dispatch,dislikedVideo,setShowSignInModel,setBgOpacity} = useVideo()
     const {userID,token} = useAuth()
     return (
-        <div className="like_items" onClick={() => dislikeClickHandler({_id,dispatch,userID,token})}>
+        <div className="like_items" onClick={() => dislikeClickHandler({_id,dispatch,userID,token,setShowSignInModel,setBgOpacity})}>
             <MdiThumbDown
                 className="iconify playvideoIcons"
                 style={{
