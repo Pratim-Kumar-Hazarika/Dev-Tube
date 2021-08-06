@@ -29,7 +29,7 @@ const {userID,token} = useAuth()
               {
                   playlist.video.map((item)=>{
                       const {_id,thumbnail,image,views,name} = item
-                      return <Playlists _id={_id} playlistName={playlist.name} thumbnail={thumbnail} image={image} name={name} views={views}/>
+                      return <Playlists key={_id} _id={_id} playlistName={playlist.name} thumbnail={thumbnail} image={image} name={name} views={views}/>
                   })
               }
               </div>
