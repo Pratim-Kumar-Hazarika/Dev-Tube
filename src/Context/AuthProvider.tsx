@@ -1,6 +1,7 @@
 import axios from "axios";
-import {createContext, Dispatch, FC, SetStateAction, useContext, useState} from "react";
+import {createContext, Dispatch, FC, SetStateAction, useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router";
+import { getUserIdFromServer } from "./utils/getUserIdFromServer";
 import { loginUser } from "./utils/loginUser";
 import { setUserStatus } from "./utils/setUserStatus";
 
@@ -14,25 +15,28 @@ interface AuthContextType {
     loginUserWithCredentials:any;
     loading:boolean;
     setLoading:Dispatch<SetStateAction<boolean>>;
-    userID:string;
+    userID:string ;
     token:string;
-    signoutHandler:()=>void
+    signoutHandler:()=>void;
+    setUserID:Dispatch<SetStateAction<string>>;
 }
 const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider : FC = ({children}) => {
-  const {  token: savedToken, userId: savedUserId } = JSON.parse(localStorage.getItem("login")  || '{}')
+  const {  token: savedToken } = JSON.parse(localStorage.getItem("login")  || '{}')
    || {
       token: null,
-      userId: null
     };
     const [token,setToken] = useState(savedToken)
-    const [userID,setUserID] = useState(savedUserId)
+    const [userID,setUserID] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [name,setName] = useState('')
     const navigate = useNavigate()
     const [loading,setLoading] = useState(false)
+
+
+ 
 
    async function loginUserWithCredentials(userEmail:string,userPassword:string): Promise<void>{
         setLoading(true)
@@ -40,6 +44,7 @@ export const AuthProvider : FC = ({children}) => {
             const response = await loginUser(userEmail,userPassword);
             const {token,userId} = response.data
             if(response.status === 200){
+                getUserIdFromServer(token,setUserID)
                setUserStatus({token,userId,setToken,setUserID,navigate})
                setLoading(false)
             }
@@ -56,7 +61,7 @@ export const AuthProvider : FC = ({children}) => {
         }
 
     return (
-        <AuthContext.Provider value={{email,setEmail,password,setPassword,name,setName,loginUserWithCredentials,loading,setLoading,userID,token,signoutHandler}}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={{email,setEmail,password,setPassword,name,setName,loginUserWithCredentials,loading,setLoading,userID,token,signoutHandler,setUserID}}>{children}</AuthContext.Provider>
     )
 }
 
