@@ -11,8 +11,9 @@ export type LoginData = {
 }
 
 export async function loginUser(userEmail:string,userPassword:string) {
+    const trimEmail = userEmail.trim()
     const data :LoginData = {
-        email:userEmail,
+        email:trimEmail,
         password:userPassword
     }
     return   axios.post<Response>(`${process.env.REACT_APP_SERVER_URL}/user/login`,data)  
