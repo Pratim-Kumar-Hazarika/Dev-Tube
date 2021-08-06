@@ -14,6 +14,7 @@ import { UnlikeController } from "../Components/VideoControllers/UnlikeControlle
 import { PlaylistController } from "../Components/VideoControllers/PlaylistController";
 import { ShareVideo } from "../Components/VideoControllers/ShareVideo";
 import { useAuth } from "../Context/AuthProvider";
+import { SignInMessageModel } from "../Components/Model/SignInMessageModel";
 
 export function WatchVideo() {
 const {videoId} = useParams();
@@ -33,6 +34,7 @@ return ( <>
   <Header />
   <div className="main_video_playing_screen">
     <PlayListModel _id ={_id}/>
+    <SignInMessageModel/>
     <div className="leftBar">
       <LeftBar />
       </div>
@@ -65,6 +67,7 @@ return ( <>
             </div>
           </div>
         </div>
+ 
         <RightVerticalVideos />
       </div>
       <div className="extra_height"/>
