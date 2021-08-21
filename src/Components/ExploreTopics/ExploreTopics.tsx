@@ -1,5 +1,11 @@
 import "./ExploreTopics.css";
 import { Link } from "react-router-dom";
+import GraphQlImg from "../../assests/graphql.jpeg"
+import TsImg from "../../assests/ts.jpeg"
+import JsImg from "../../assests/js.jpeg";
+import ReactImg from "../../assests/react.jpeg"
+import TeaImg from "../../assests/tea.jpeg"
+import HtmlImg from "../../assests/html.jpeg"
 export default function ExploreTopics() {
   return (
     <>
@@ -9,18 +15,18 @@ export default function ExploreTopics() {
           <div className="img_div">
             <Link to="/topic/course1">
               <img
-              alt=""
+              alt="tea"
                 className="topic_image"
-                src="https://i.ytimg.com/vi/E8cl_8ktp9M/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAhp-LrxTAmHYRtQA8q7DelDXbxHA"
+                src={HtmlImg}
               />
             </Link>
           </div>
           <div className="img_div">
             <Link to="/topic/teaWithTanay">
               <img
-              alt=""
+              alt="tea-with-tanay"
                 className="topic_image"
-                src="https://i.ytimg.com/vi/GDYhoRbYH3o/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB_dybtORKh5VsjNd_qTK9Fh288qg"
+                src={TeaImg}
               />
             </Link>
           </div>
@@ -29,18 +35,18 @@ export default function ExploreTopics() {
           <div className="img_div">
             <Link to="/topic/react-course">
               <img
-              alt=""
+              alt="reac"
                 className="topic_image"
-                src="https://www.resourcifi.com/blog/wp-content/uploads/2020/09/Why-Use-React-Native-For-Your-Business-in-2020.jpg"
+                src={ReactImg}
               />
             </Link>
           </div>
           <div className="img_div">
           <Link to="/topic/js-talks">
               <img
-              alt=""
+              alt="js"
                  className="topic_image"
-                src="https://miro.medium.com/max/2000/1*uZ094Kxwv_qLih3tn9AZ6Q.jpeg"
+                src={JsImg}
               />
             </Link>
 
@@ -50,9 +56,9 @@ export default function ExploreTopics() {
           <div className="img_div">
             <Link to="/topic/typescript">
               <img
-              alt=""
+              alt="ts"
                  className="topic_image"
-                src="https://res.cloudinary.com/practicaldev/image/fetch/s--c9q4Du_e--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://ionicframework.com/blog/wp-content/uploads/2019/02/typescript-in-react.png"
+                src={TsImg}
               />
             </Link>
           </div>
@@ -60,7 +66,7 @@ export default function ExploreTopics() {
           <Link to="/topic/graphQl-talks">
               <img
                 className="topic_image"
-                src="https://cdn.codersociety.com/uploads/graphql-reasons.png" alt=""
+                src={GraphQlImg} alt="graphql"
               />
             </Link>
           </div>
