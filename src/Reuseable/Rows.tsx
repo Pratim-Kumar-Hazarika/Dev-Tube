@@ -9,6 +9,7 @@ export const Rows: React.FC<RowProps> = ({_id,thumbnail,image,views,name}) => {
         <div style={{ height: "100%" }}>
           <Link to={`/video/${_id}`}>
             <img
+            width="640" height="360"
               className="video_image"
               src={thumbnail}
               alt="video_image"
