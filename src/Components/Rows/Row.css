@@ -5,6 +5,7 @@
     /* overflow-y:none */
   }
   
+  
   .row-1::-webkit-scrollbar {
     height: 8px;
   }
@@ -44,7 +45,9 @@
   }
   
   .video_image {
-    width: 340px;
+    width: 100%; 
+    height: auto;
+  
   }
   .avatar {
     max-width: 3rem;
