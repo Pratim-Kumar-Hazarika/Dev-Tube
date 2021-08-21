@@ -27,6 +27,7 @@ export function RightVerticalVideos() {
                     <Link to={{ pathname: `/video/${_id}` }}>
                       <img
                         className="thumbnail_img_right"
+                        width="100%" height="auto"
                         src={thumbnail}
                         alt="thumbnail"
                       />
