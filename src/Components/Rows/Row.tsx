@@ -6,7 +6,7 @@ export function Row() {
 const {state} = useVideo()
 
   const reactAndTypescript = state.allVideos.filter(
-    (item) =>  item.genre === "react-course" || item.genre ==="typescript"
+    (item) =>  item.genre ==="typescript" || item.genre === "react-course" 
   );
   const graphqlAndJstalks = state.allVideos.filter(
     (item) => item.genre === "graphQl-talks" || item.genre === "js-talks"
@@ -17,6 +17,17 @@ const {state} = useVideo()
   return (
     <div className="rows">
       <div style={{marginTop:"2.5rem"}} >
+      <h3>COURSE 1 AND TEA WITH TANAY</h3>
+        <div className="row-1">
+          <div className="flex">
+              {
+                  courseAndTeaWithTanay.map((item)=>{
+                      const {_id,thumbnail,image,views,name} = item
+                      return <Rows _id={_id} thumbnail={thumbnail} image={image} name={name} views={views}/>
+                  })
+              }
+          </div>
+        </div>
         <h3>REACT AND TYPESCRIPT</h3>
         <div className="row-1">
           <div className="flex">
@@ -38,18 +49,7 @@ const {state} = useVideo()
                   })
               }
           </div>
-        </div>
-        <h3>COURSE 1 AND TEA WITH TANAY</h3>
-        <div className="row-1">
-          <div className="flex">
-              {
-                  courseAndTeaWithTanay.map((item)=>{
-                      const {_id,thumbnail,image,views,name} = item
-                      return <Rows _id={_id} thumbnail={thumbnail} image={image} name={name} views={views}/>
-                  })
-              }
-          </div>
-        </div>
+        </div>     
       </div>
     </div>
   );
